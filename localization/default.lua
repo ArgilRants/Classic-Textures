@@ -26,7 +26,7 @@ return {
                     "Sprites that were either accidentally",
                     "left in the files or shown off by LocalThunk.",
                     "{C:chips}Changed Joker Sprites:{}",
-                    "Sprites were in public versions that",
+                    "Sprites that were in public versions that",
                     "have since been changed.",
                 }
             }

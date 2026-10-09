@@ -1,0 +1,19 @@
+{
+ "id": "classic_textures",
+ "name": "Classic Textures",
+ "display_name": "Classic Textures",
+ "badge_colour": "eac058",
+ "badge_text_colour": "FFFFFF",
+ "badge_text_no_shadow": false,
+ "no_marquee": true,
+ "icon_path": "icon.png",
+ "icon_width": 57,
+ "icon_fps": 12,
+ "author": ["ArgilRants. see credits"],
+ "description": "A set of texture packs with the aim to bring back reworked or otherwise unseen textures from days past.",
+ "prefix": "ctex",
+ "main_file": "main.lua",
+ "priority": 0,
+ "version": "1.0.0",
+ "dependencies": ["malverk"]
+}

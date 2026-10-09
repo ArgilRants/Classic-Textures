@@ -10,7 +10,7 @@ return {
                 name = "Classic Textures",
                 text = {
                     "A set of 4 {C:edition}Texture Packs{} with the aim",
-                    "to bring back the {C:red}old{}, {C:blue}unseen{} and ",
+                    "to bring the {C:red}old{}, {C:blue}unseen{} and ",
                     "{C:gold}classic{} sprites back to the game.",
                     " ",
                     "Go to {B:attention,C:white}Options{} -> {B:27c2ec,C:white}Textures{} to enable the pack(s)",

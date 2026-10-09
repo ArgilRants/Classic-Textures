@@ -16,7 +16,7 @@ return {
                     "Go to {B:attention,C:white}Options{} -> {B:27c2ec,C:white}Textures{} to enable the pack(s)",
                     " ",
                     "Available packs:",
-                    "{C:planet}Old PLanets:{}",
+                    "{C:planet}Old Planets:{}",
                     "Returns the old grey backgrounds of {C:planet}Planets{}",
                     "adds consitency with new secret planet sprites.",
                     "{C:green}Star Stake Stickers:{}",

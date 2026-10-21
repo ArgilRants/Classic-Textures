@@ -1,7 +1,11 @@
 return {
+
     misc = {
         dictionary = {
             k_ctex = 'Classic Textures',
+            k_ctex_artist = 'Artist',
+            k_ctex_developer = 'Developer',
+            k_ctex_creator = 'Creator',
         }
     },
     descriptions = {
@@ -13,23 +17,80 @@ return {
                     "to bring the {C:red}old{}, {C:blue}unseen{} and ",
                     "{C:gold}classic{} sprites back to the game.",
                     " ",
-                    "Go to {B:attention,C:white}Options{} -> {B:27c2ec,C:white}Textures{} to enable the pack(s)",
+                    "Press {element:1}{} to",
+                    "see and select packs",
                     " ",
-                    "Available packs:",
-                    "{C:planet}Old Planets:{}",
-                    "Returns the old grey backgrounds of {C:planet}Planets{}",
-                    "adds consitency with new secret planet sprites.",
-                    "{C:green}Star Stake Stickers:{}",
-                    "Adds the previously unseen star version",
-                    "of the stake stickers from {C:attention}0.9.0q{}.",
-                    "{C:mult}Unused Joker Sprites:{}",
-                    "Sprites that were either accidentally",
-                    "left in the files or shown off by LocalThunk.",
-                    "{C:chips}Changed Joker Sprites:{}",
-                    "Sprites that were in public versions that",
-                    "have since been changed.",
+                    "{element:2}{} {element:3}{}",
+                    "Other projects of mine:",
+                    "{element:4}{}"
                 }
             }
+        },
+        Joker = {
+            j_ctex_zebra = {
+                name = "zebragoboom",
+                text = 
+                {
+                    {
+                    'Drew the animated Mod icon'
+                    },
+                    {
+                        'Redrew {C:common}The A{}, {C:common}Shoot the Moon{},',
+                        '{C:uncommon}Oops! All 6s{} and {C:rare}Obelisk{} for',
+                        'the Unused Sprites Pack'
+                    },
+                }
+            },
+            j_ctex_jandom = {
+                name = "januarydomino",
+                text = {
+                {
+                    'Redrew {C:uncommon}Bloodstone{} for',
+                    'the Unused Sprites Pack'
+                },
+                {
+                    'Check out their mods:',
+                    '{element:1}',
+                    'aka. Jandolatro, as well as,',
+                    'Nevergreen & Vanilla Consistency',
+                    '{C:inactive}[all coming soon]{}'
+                }
+            }
+            },
+            j_ctex_lilo = {
+                name = "lilaclila",
+                text = {
+                {
+                    'Helped a lot with the code',
+                },
+                {
+                    'Check out Rebalatro and',
+                    'Polytrans @ github/lilaclila',
+                },
+                {
+                    'HRT art drew by:',
+                    '{element:1}',
+                }}
+            },
+            j_ctex_argil = {
+                name = "ArgilRants",
+                text = {
+                {
+                    '{C:ctex_creator}Creator{} and main developer',
+                },
+                {
+                    'Redrew {C:uncommon}Diet Cola{} for',
+                    'the Unused Sprites pack',
+                },
+                {
+                    'Drew new secret {C:planet}Planet{} sprites',
+                    'for the Old Planets Pack'
+                },
+                {
+                    'Background art drew by:',
+                    '{element:1}',
+                }}
+            },
         },
         alt_texture = {
             alt_tex_ctex_pluto = {
@@ -254,6 +315,30 @@ return {
                     
                 }
             },
+            alt_tex_ctex_soul = {
+                name = 'The Soul',
+                c_soul= {
+                    
+                }
+            },
+            alt_tex_ctex_erratic = {
+                name = 'Erratic Deck',
+                b_erratic= {
+
+                }
+            },
+            alt_tex_ctex_seals = {
+                name = 'Gold Seal',
+                gold_seal= {
+
+                }
+            },
+            alt_tex_ctex_shoot_the_moon = {
+                name = 'Shoot the Moon',
+                j_shoot_the_moon= {
+
+                }
+            },
         },
         texture_packs = {
             texpack_ctex_oldplanets = {
@@ -271,22 +356,20 @@ return {
                     'Stake Stickers using the',
                     'unused star varients',
                     'from {C:attention}0.9.0q{}'
-                }
+                },
             },
-            texpack_ctex_unusedjokers = {
-                name = 'Unused Joker Sprites',
+            texpack_ctex_unusedsprites = {
+                name = 'Unused Sprites',
                 text = {
-                    'Joker Sprites that were either',
+                    'Sprites that were either',
                     'accidentally left in the files',
                     'or shown off by LocalThunk',
-                    'ReSprites by {C:chips}ArgilRants{},',
-                    '{C:mult}zebragoboom{} and {C:637ab1}januarydomino{}'
                 }
             },
-            texpack_ctex_changedjokers = {
-                name = 'Changed Joker Sprites',
+            texpack_ctex_changedsprites = {
+                name = 'Changed Sprites',
                 text = {
-                    'Joker Sprites that were in', 
+                    'Sprites that were in', 
                     'public versions that have',
                     'since been changed',
                 }

@@ -5,7 +5,7 @@
 #endif
 
 
-extern MY_HIGHP_OR_MEDIUMP vec2 debuff;
+extern MY_HIGHP_OR_MEDIUMP vec2 classic_debuff;
 extern MY_HIGHP_OR_MEDIUMP number dissolve;
 extern MY_HIGHP_OR_MEDIUMP number time;
 extern MY_HIGHP_OR_MEDIUMP vec4 texture_details;
@@ -105,7 +105,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     
 	number width = 0.0;
 
-	if (debuff.g > 0.0 || debuff.g < 0.0) {
+	if (classic_debuff.g > 0.0 || classic_debuff.g < 0.0) {
 		width = 0.1;
 	}
 

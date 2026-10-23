@@ -1,5 +1,5 @@
--- Variables:
-mod = SMODS.current_mod
+-- Global variables:
+classic_textures = SMODS.current_mod
 
 -- list of sin jokers
 sin_jokers = {
@@ -27,15 +27,16 @@ assert(SMODS.load_file('src/alttextures.lua'))()
 assert(SMODS.load_file('src/shaders.lua'))()
 assert(SMODS.load_file('src/credits.lua'))()
 assert(SMODS.load_file('src/config.lua'))()
+assert(SMODS.load_file('src/compatibility/blueprint.lua'))()
 
 -- Check for Star Sticker Pack / Changed Sprites Pack and change the loc
-mod.process_loc_text = function()
+classic_textures.process_loc_text = function()
     set_sticker_loc()
     set_seal_loc()
 end
 
 -- Set Negative edition to main menu card
-mod.menu_cards = function()
+classic_textures.menu_cards = function()
     return {
         -- func = function()
 		-- 	G.title_top.cards[1]:set_edition("e_negative")

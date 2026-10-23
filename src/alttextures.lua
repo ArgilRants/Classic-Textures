@@ -494,7 +494,7 @@ SMODS.Joker:take_ownership('lusty_joker', {
     pos = { x = 0, y = 0 },
     set_sprites = function(self, card, front)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_lusty_bordered"
                 card.children.center:reset()
             else
@@ -508,7 +508,7 @@ SMODS.Joker:take_ownership('lusty_joker', {
     end,
     update = function(self, card, dt)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_lusty_bordered"
                 card.children.center:reset()
             else
@@ -526,7 +526,7 @@ SMODS.Joker:take_ownership('wrathful_joker', {
     pos = { x = 0, y = 0 },
     set_sprites = function(self, card, front)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_wrathful_bordered"
                 card.children.center:reset()
             else
@@ -540,7 +540,7 @@ SMODS.Joker:take_ownership('wrathful_joker', {
     end,
     update = function(self, card, dt)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_wrathful_bordered"
                 card.children.center:reset()
             else
@@ -558,7 +558,7 @@ SMODS.Joker:take_ownership('greedy_joker', {
     pos = { x = 0, y = 0 },
     set_sprites = function(self, card, front)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_greedy_bordered"
                 card.children.center:reset()
             else
@@ -572,7 +572,7 @@ SMODS.Joker:take_ownership('greedy_joker', {
     end,
     update = function(self, card, dt)
          if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_greedy_bordered"
                 card.children.center:reset()
             else
@@ -590,7 +590,7 @@ SMODS.Joker:take_ownership('gluttenous_joker', {
     pos = { x = 0, y = 0 },
     set_sprites = function(self, card, front)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_gluttenous_bordered"
                 card.children.center:reset()
             else
@@ -604,7 +604,7 @@ SMODS.Joker:take_ownership('gluttenous_joker', {
     end,
     update = function(self, card, dt)
         if ctex.is_pack_active("texpack_ctex_changedsprites") then
-            if mod.config.bordered_sin_jokers == true then
+            if classic_textures.config.bordered_sin_jokers == true then
                 card.children.center.atlas.name = "ctex_gluttenous_bordered"
                 card.children.center:reset()
             else

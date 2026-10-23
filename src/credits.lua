@@ -166,7 +166,7 @@ SMODS.Joker{
 
 -- Create credits tab
 
-mod.credits_tab = function()
+classic_textures.credits_tab = function()
  return {n = G.UIT.ROOT, config = {align = "tm", minh=0.5, minw=10, padding = 0.05, emboss = 0.05, r = 0.1, colour = G.C.BLACK}, 
  nodes = {
     {n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={

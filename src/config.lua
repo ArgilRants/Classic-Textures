@@ -1,10 +1,10 @@
-mod.config = mod.config or {}
-if mod.config.classic_negative_shader == nil then mod.config.classic_negative_shader = false end
-if mod.config.classic_debuff_shader == nil then mod.config.classic_debuff_shader = false end
-if mod.config.bordered_sin_jokers == nil then mod.config.bordered_sin_jokers = false end
-G.classic_textures_config = mod.config_tab
+classic_textures.config = classic_textures.config or {}
+if classic_textures.config.classic_negative_shader == nil then classic_textures.config.classic_negative_shader = false end
+if classic_textures.config.classic_debuff_shader == nil then classic_textures.config.classic_debuff_shader = false end
+if classic_textures.config.bordered_sin_jokers == nil then classic_textures.config.bordered_sin_jokers = false end
+G.classic_textures_config = classic_textures.config_tab
 
-mod.ui_config = {
+classic_textures.ui_config = {
  colour = G.C.L_BLACK, 
  author_colour = G.C.CTEX_CREATOR, 
  bg_colour = { G.C.GREY[1], G.C.GREY[2], G.C.GREY[3], 0.5 }, 
@@ -12,7 +12,7 @@ mod.ui_config = {
  tab_button_colour = G.C.RED, 
 }
 
-mod.description_loc_vars = function(self)
+classic_textures.description_loc_vars = function(self)
     return {
     vars = {          
         elements = {
@@ -44,11 +44,11 @@ mod.description_loc_vars = function(self)
 }
 end
 
-mod.set_mod_badge = function(obj)
+classic_textures.set_mod_badge = function(obj)
     return create_badge(localize('k_ctex'), G.C.CTEX_BADGE, G.C.WHITE, 1) 
 end
 
-mod.config_tab = function()
+classic_textures.config_tab = function()
     return {n = G.UIT.ROOT, config = {align = "cm", minw=7.5, padding = 0.05, emboss = 0.05, r = 0.1, colour = G.C.BLACK}, nodes = {
             {n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={
                 {n=G.UIT.C, config={minw = 3.75, minh = 1, padding = 0.1}, nodes={
@@ -63,7 +63,7 @@ mod.config_tab = function()
                     {n = G.UIT.R, config = { align = "cm", padding = 0 },nodes = {
                         create_toggle{
                             label = "Classic Negative",
-                            ref_table = mod.config,
+                            ref_table = classic_textures.config,
                             ref_value = 'classic_negative_shader',
                         },
                     }},
@@ -80,7 +80,7 @@ mod.config_tab = function()
                     {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
                         create_toggle{
                             label = "Classic Debuff",
-                            ref_table = mod.config,
+                            ref_table = classic_textures.config,
                             ref_value = 'classic_debuff_shader',
                         }
                     }},
@@ -96,7 +96,7 @@ mod.config_tab = function()
                 {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
                     create_toggle{
                         label = "Bordered Sin Jokers",
-                        ref_table = mod.config,
+                        ref_table = classic_textures.config,
                         ref_value = 'bordered_sin_jokers',
                     }
                 }},

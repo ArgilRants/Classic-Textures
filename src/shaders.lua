@@ -13,7 +13,7 @@ SMODS.Shader{
 
 local ref_draw_shader = Sprite.draw_shader
 function Sprite.draw_shader(self, shader, ...)
-    if shader == 'negative' and mod.config.classic_negative_shader == true then
+    if shader == 'negative' and classic_textures.config.classic_negative_shader == true then
         if G.SHADERS['classic_negative'] then
             shader = 'classic_negative'
         end
@@ -23,7 +23,7 @@ end
 
 local ref_draw_shader = Sprite.draw_shader
 function Sprite.draw_shader(self, shader, ...)
-    if shader == 'debuff' and mod.config.classic_debuff_shader == true then
+    if shader == 'debuff' and classic_textures.config.classic_debuff_shader == true then
         if G.SHADERS['classic_debuff'] then
             shader = 'classic_debuff'
         end
@@ -63,7 +63,11 @@ SMODS.Consumable:take_ownership('soul', {
 set_sprites = function(self, card, front)
     card.ignore_base_shader = card.ignore_base_shader or {}
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
-        card.ignore_base_shader['c_soul'] = true
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul') then
+            card.ignore_base_shader['c_soul'] = true
+        else 
+            card.ignore_base_shader['c_soul'] = nil
+        end 
     else 
         card.ignore_base_shader['c_soul'] = nil
     end
@@ -77,6 +81,11 @@ set_sprites = function(self, card, front)
     card.ignore_base_shader = card.ignore_base_shader or {}
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
         card.ignore_base_shader['j_invisible'] = true
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_invisible') then
+            card.ignore_base_shader['j_invisible'] = true
+        else 
+            card.ignore_base_shader['j_invisible'] = nil
+        end 
     else 
         card.ignore_base_shader['j_invisible'] = nil
     end

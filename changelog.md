@@ -27,3 +27,8 @@
 ### Fixes
 - Fixed issue where 'Classic Textures' badge was not displaying on cards with the polychrome edition
 - Fixed dependancies
+
+## Version 1.1.1
+### Fixes
+- Fixed Invisible and Soul not re-enabling their shaders when disabled by the config of the changed sprites pack (now you can disable them and they look like vanilla again!)
+- 'Fixed' incompatability with [Blueprint mod](https://github.com/stupxd/Blueprint).

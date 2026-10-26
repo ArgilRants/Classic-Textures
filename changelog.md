@@ -32,3 +32,16 @@
 ### Fixes
 - Fixed Invisible and Soul not re-enabling their shaders when disabled by the config of the changed sprites pack (now you can disable them and they look like vanilla again!)
 - 'Fixed' incompatability with [Blueprint mod](https://github.com/stupxd/Blueprint).
+
+## Version 1.2.0
+### Additions: 
+- Added old [Retcon](https://balatrowiki.org/w/Retcon#Trivia) sprite to Unused Sprites Pack
+- Added "Extra Descriptions" toggle in config (disabled by default) that gives extra information on the Classic Sprites story in a new tooltip.
+
+### Changes
+- Old Planets Pack has been moved into the Changed Sprites Pack
+- Star Stake Stickers Pack has been moved into the Unused Sprites Pack (These were done to help squash some confusion, as well as just consolidate)
+- Made my fix for the incompatability with [Blueprint mod](https://github.com/stupxd/Blueprint) a lovely patch
+
+### Fixes
+- Fixed issue where gold seal localisation was always enabled even if it was disbaled in the Changed Sprites Pack config

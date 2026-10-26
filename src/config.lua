@@ -2,6 +2,7 @@ classic_textures.config = classic_textures.config or {}
 if classic_textures.config.classic_negative_shader == nil then classic_textures.config.classic_negative_shader = false end
 if classic_textures.config.classic_debuff_shader == nil then classic_textures.config.classic_debuff_shader = false end
 if classic_textures.config.bordered_sin_jokers == nil then classic_textures.config.bordered_sin_jokers = false end
+if classic_textures.config.extra_info == nil then classic_textures.config.extra_info = false end
 G.classic_textures_config = classic_textures.config_tab
 
 classic_textures.ui_config = {
@@ -16,24 +17,29 @@ classic_textures.description_loc_vars = function(self)
     return {
     vars = {          
         elements = {
-            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = HEX("3FC7EB"), minw = 2, button = "textures_button",}, nodes = {
+            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = HEX("3FC7EB"), minw = 2 , button = "textures_button"}, nodes = {
                 {n=G.UIT.R, config = {align="cm"}, nodes = {
-                    {n=G.UIT.T, config = {align="cm", text = "TEXTURES", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                    {n=G.UIT.T, config = {align="cm", text = "Textures", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
                 }},
             }},
-            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = G.C.UI.TEXT_INACTIVE, minw = 2, button = "ctex_github",}, nodes = {
+            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = G.C.UI.TEXT_INACTIVE, minw = 1.5, button = "ctex_github"}, nodes = {
                 {n=G.UIT.R, config = {align="cm"}, nodes = {
-                    {n=G.UIT.T, config = {align="cm", text = "GITHUB", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                    {n=G.UIT.T, config = {align="cm", text = "GitHub", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
                 }},
             }},
-            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = HEX("5865F2"), minw = 3, button = "ctex_discord",}, nodes = {
+            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = HEX("5865F2"), minw = 3, button = "ctex_discord"}, nodes = {
                 {n=G.UIT.R, config = {align="cm"}, nodes = {
-                    {n=G.UIT.T, config = {align="cm", text = "DISCORD THREAD", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                    {n=G.UIT.T, config = {align="cm", text = "Discord Thread", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
                 }},
             }},
-            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.4, shadow = true, colour = G.C.GOLD, minw = 2, button = "ctex_capture_all",}, nodes = {
+            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = 	G.C.PURPLE, minw = 1, button = "ctex_wiki"}, nodes = {
                 {n=G.UIT.R, config = {align="cm"}, nodes = {
-                    {n=G.UIT.T, config = {align="cm", text = "CAPTURE ALL", scale = 0.3, color = G.C.UI.TEXT_LIGHT}}
+                    {n=G.UIT.T, config = {align="cm", text = "Wiki", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                }},
+            }},
+            {n=G.UIT.C, config = {align = "cm", r = 0.1, hover = true, minh = 0.4, shadow = true, colour = G.C.GOLD, minw = 2, button = "ctex_capture_all"}, nodes = {
+                {n=G.UIT.R, config = {align="cm"}, nodes = {
+                    {n=G.UIT.T, config = {align="cm", text = "Capture All", scale = 0.3, color = G.C.UI.TEXT_LIGHT}}
                 }},
             }},
         }
@@ -103,6 +109,13 @@ classic_textures.config_tab = function()
                 {n=G.UIT.R, config={align = "cm"}, nodes={
                     {n = G.UIT.T, config = {text = "[Must have Changed Sprites Pack enabled to take effect]", colour = HEX("ffffff80"), scale = 0.3}},
                 }},
+            }},
+            {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
+                create_toggle{
+                    label = "Extra Description Info",
+                    ref_table = classic_textures.config,
+                    ref_value = 'extra_info',
+                }
             }},
         }
     }

@@ -21,26 +21,22 @@ credits_jokers = {
     }
 }
 
--- Load all the files (Seperated everything because god this was a nightmare before lol)
+-- Load all the files:
 assert(SMODS.load_file('src/functions.lua'))()
 assert(SMODS.load_file('src/alttextures.lua'))()
 assert(SMODS.load_file('src/shaders.lua'))()
 assert(SMODS.load_file('src/credits.lua'))()
 assert(SMODS.load_file('src/config.lua'))()
-assert(SMODS.load_file('src/compatibility/blueprint.lua'))()
 
--- Check for Star Sticker Pack / Changed Sprites Pack and change the loc
+-- Check for Unused / Changed Sprites Pack and change the loc
 classic_textures.process_loc_text = function()
     set_sticker_loc()
     set_seal_loc()
 end
 
--- Set Negative edition to main menu card
+-- Add 'easter egg' to main menu
 classic_textures.menu_cards = function()
     return {
-        -- func = function()
-		-- 	G.title_top.cards[1]:set_edition("e_negative")
-		-- end
         remove_original = true,
         create_main_menu_card()
     }

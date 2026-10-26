@@ -13,6 +13,10 @@ function G.FUNCS.ctex_discord(e)
     love.system.openURL("https://discord.com/channels/1116389027176787968/1558075796281630871")
 end
 
+function G.FUNCS.ctex_wiki(e)
+    love.system.openURL("https://balatromods.miraheze.org/wiki/Classic_Textures")
+end
+
 -- Custom graident for 'Creator' badge
 G.C.CTEX_CREATOR = SMODS.Gradient{
     key = "creator",
@@ -69,8 +73,7 @@ function create_debuffed_card_example()
     return card
 end
 
--- End of create cards
-
+-- Check if pack is selected in anyway
 function ctex.is_pack_active(check_pack)
     if not (Malverk and Malverk.config and Malverk.config.selected) then return false end
     for _, pack in ipairs(Malverk.config.selected) do
@@ -79,54 +82,19 @@ function ctex.is_pack_active(check_pack)
     return false
 end
 
+-- Check if a textures key is set to true in that specific packs config
 function ctex.is_texture_active(check_pack, check_texture)
     if not (Malverk and Malverk.config and Malverk.config.texture_configs) then return false end
     if Malverk.config.texture_configs[check_pack][check_texture] == true then return true end
     return false
 end
 
+-- Update stuff when Malverk updates the atlas'
 local ref_update_atlas = Malverk.update_atlas
 function Malverk.update_atlas(...)
     square_check()
     set_sticker_loc()
     set_seal_loc()
-    if ctex.is_pack_active('texpack_ctex_oldplanets') then
-        ctex.OLDPLANETS_TEXT_CENTERS = {
-            c_pluto = nil,
-            c_mercury = nil,
-            c_uranus = nil,
-            c_venus = nil,
-            c_saturn = nil,
-            c_jupiter = nil,
-            c_earth = nil,
-            c_mars = nil,
-            c_neptune = nil,
-            c_planet_x = nil,
-            c_ceres = nil,
-            c_eris = nil,
-            j_astronomer = nil,
-        }
-
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_pluto') then ctex.OLDPLANETS_TEXT_CENTERS.c_pluto = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_mercury') then ctex.OLDPLANETS_TEXT_CENTERS.c_mercury = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_uranus') then ctex.OLDPLANETS_TEXT_CENTERS.c_uranus = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_venus') then ctex.OLDPLANETS_TEXT_CENTERS.c_venus = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_saturn') then ctex.OLDPLANETS_TEXT_CENTERS.c_saturn = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_jupiter') then ctex.OLDPLANETS_TEXT_CENTERS.c_jupiter = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_earth') then ctex.OLDPLANETS_TEXT_CENTERS.c_earth = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_mars') then ctex.OLDPLANETS_TEXT_CENTERS.c_mars = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_neptune') then ctex.OLDPLANETS_TEXT_CENTERS.c_neptune = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_planet_x') then ctex.OLDPLANETS_TEXT_CENTERS.c_planet_x = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_ceres') then ctex.OLDPLANETS_TEXT_CENTERS.c_ceres = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_eris') then ctex.OLDPLANETS_TEXT_CENTERS.c_eris = true end
-        if ctex.is_texture_active('texpack_ctex_oldplanets', 'alt_tex_ctex_astronomer') then ctex.OLDPLANETS_TEXT_CENTERS.j_astronomer = true end
-
-    else
-        ctex.OLDPLANETS_TEXT_CENTERS = {
-
-        }
-    end
-
     if ctex.is_pack_active('texpack_ctex_unusedsprites') then
         ctex.UNUSED_TEXT_CENTERS = {
             j_scholar = nil,
@@ -146,6 +114,7 @@ function Malverk.update_atlas(...)
         if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_obelisk') then ctex.UNUSED_TEXT_CENTERS.j_obelisk = true end
         if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_oops') then ctex.UNUSED_TEXT_CENTERS.j_oops = true end
         if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_shoot_the_moon') then ctex.UNUSED_TEXT_CENTERS.j_shoot_the_moon = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_retcon') then ctex.UNUSED_TEXT_CENTERS.v_retcon = true end
 
     else
         ctex.UNUSED_TEXT_CENTERS = {
@@ -178,8 +147,23 @@ function Malverk.update_atlas(...)
             j_crazy = nil,
             c_soul = nil,
             b_erratic = nil,
+            v_retcon = nil,
+            c_pluto = nil,
+            c_mercury = nil,
+            c_uranus = nil,
+            c_venus = nil,
+            c_saturn = nil,
+            c_jupiter = nil,
+            c_earth = nil,
+            c_mars = nil,
+            c_neptune = nil,
+            c_planet_x = nil,
+            c_ceres = nil,
+            c_eris = nil,
+            j_astronomer = nil,
         }
 
+        -- Enable Sin Jokers:
         ctex.CHANGED_TEXT_CENTERS.j_wrathful_joker = true
         ctex.CHANGED_TEXT_CENTERS.j_lusty_joker = true 
         ctex.CHANGED_TEXT_CENTERS.j_greedy_joker = true 
@@ -204,6 +188,19 @@ function Malverk.update_atlas(...)
         if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_crazy') then ctex.CHANGED_TEXT_CENTERS.j_crazy = true end
         if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul') then ctex.CHANGED_TEXT_CENTERS.c_soul = true end
         if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_erratic') then ctex.CHANGED_TEXT_CENTERS.b_erratic = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_pluto') then ctex.CHANGED_TEXT_CENTERS.c_pluto = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mercury') then ctex.CHANGED_TEXT_CENTERS.c_mercury = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_uranus') then ctex.CHANGED_TEXT_CENTERS.c_uranus = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_venus') then ctex.CHANGED_TEXT_CENTERS.c_venus = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_saturn') then ctex.CHANGED_TEXT_CENTERS.c_saturn = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_jupiter') then ctex.CHANGED_TEXT_CENTERS.c_jupiter = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_earth') then ctex.CHANGED_TEXT_CENTERS.c_earth = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mars') then ctex.CHANGED_TEXT_CENTERS.c_mars = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_neptune') then ctex.CHANGED_TEXT_CENTERS.c_neptune = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_planet_x') then ctex.CHANGED_TEXT_CENTERS.c_planet_x = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_ceres') then ctex.CHANGED_TEXT_CENTERS.c_ceres = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_eris') then ctex.CHANGED_TEXT_CENTERS.c_eris = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_astronomer') then ctex.CHANGED_TEXT_CENTERS.j_astronomer = true end
 
     else
         ctex.CHANGED_TEXT_CENTERS = {
@@ -223,6 +220,7 @@ function G.UIDEF.card_h_popup(card)
     return ret
 end
 
+-- Hook into when mod badges would be drawn
 if SMODS.create_mod_badges then
     local ref_create_mod_badges = SMODS.create_mod_badges
     function SMODS.create_mod_badges(obj, badges)
@@ -234,23 +232,25 @@ if SMODS.create_mod_badges then
     end
 end
 
+-- Check if a card is changed by either classic textures packs
 function ctex.is_affected(card)
     if not card then return false end
 
     local center = card.config and card.config.center
     local key = center and center.key
     if not key then return false end
-    if ctex.OLDPLANETS_TEXT_CENTERS[key] then return true end
     if ctex.UNUSED_TEXT_CENTERS[key] then return true end
     if ctex.CHANGED_TEXT_CENTERS[key] then return true end
     return false
 end
 
+-- Create custom Classic Textures badge
 function ctex.create_badge(card)
     local badge = create_badge(localize('k_ctex'), G.C.CTEX_BADGE, G.C.WHITE, 1) 
     return badge
 end
 
+-- Check if square is enabled, and alter its pixel size
 function square_check()
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
         if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square') then
@@ -284,16 +284,28 @@ function square_check()
     end
 end
 
+-- Check is unsued sprites pack is enabled and then check if the stakes (the star stake stickers) are enabled and then change the Localisation
 function set_sticker_loc()
-    if ctex.is_pack_active('texpack_ctex_starstickers') then
-        G.localization.descriptions.Other.white_sticker.name = 'White Star'
-        G.localization.descriptions.Other.red_sticker.name = 'Red Star'
-        G.localization.descriptions.Other.green_sticker.name = 'Green Star'
-        G.localization.descriptions.Other.black_sticker.name = 'Black Star'
-        G.localization.descriptions.Other.blue_sticker.name = 'Blue Star'
-        G.localization.descriptions.Other.purple_sticker.name = 'Purple Star'
-        G.localization.descriptions.Other.orange_sticker.name = 'Orange Star'
-        G.localization.descriptions.Other.gold_sticker.name = 'Gold Star'
+    if ctex.is_pack_active('texpack_ctex_unusedsprites') then
+        if ctex.is_texture_active("texpack_ctex_unusedsprites", "alt_tex_ctex_stake") then
+            G.localization.descriptions.Other.white_sticker.name = 'White Star'
+            G.localization.descriptions.Other.red_sticker.name = 'Red Star'
+            G.localization.descriptions.Other.green_sticker.name = 'Green Star'
+            G.localization.descriptions.Other.black_sticker.name = 'Black Star'
+            G.localization.descriptions.Other.blue_sticker.name = 'Blue Star'
+            G.localization.descriptions.Other.purple_sticker.name = 'Purple Star'
+            G.localization.descriptions.Other.orange_sticker.name = 'Orange Star'
+            G.localization.descriptions.Other.gold_sticker.name = 'Gold Star'
+        else
+            G.localization.descriptions.Other.white_sticker.name = 'White Sticker'
+            G.localization.descriptions.Other.red_sticker.name = 'Red Sticker'
+            G.localization.descriptions.Other.green_sticker.name = 'Green Sticker'
+            G.localization.descriptions.Other.black_sticker.name = 'Black Sticker'
+            G.localization.descriptions.Other.blue_sticker.name = 'Blue Sticker'
+            G.localization.descriptions.Other.purple_sticker.name = 'Purple Sticker'
+            G.localization.descriptions.Other.orange_sticker.name = 'Orange Sticker'
+            G.localization.descriptions.Other.gold_sticker.name = 'Gold Sticker'
+        end
     else
         G.localization.descriptions.Other.white_sticker.name = 'White Sticker'
         G.localization.descriptions.Other.red_sticker.name = 'Red Sticker'
@@ -306,9 +318,10 @@ function set_sticker_loc()
     end
 end
 
+-- Check if changed sprites pack is enabled and then check if the seals are enabled and then change the gold seal localisation
 function set_seal_loc()
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
-        if ctex.is_texture_active("texpack_ctex_changedsprites", "alt_tex_ctex_lusty") then
+        if ctex.is_texture_active("texpack_ctex_changedsprites", "alt_tex_ctex_seals") then
             G.localization.descriptions.Other.gold_seal.name = "Classic Gold Seal"
         else
             G.localization.descriptions.Other.gold_seal.name = "Gold Seal"
@@ -318,6 +331,7 @@ function set_seal_loc()
     end
 end
 
+-- Create credits card area
 function create_credits()
     local set = credits_jokers[1]
     G.ctex_credit_jokers = CardArea(
@@ -349,6 +363,7 @@ function create_credits()
     return G.ctex_credit_jokers
 end
 
+-- Create sin jokers card area in config
 function create_sin_jokers()
     local set = sin_jokers[1]
     G.ctex_sin_jokers = CardArea(
@@ -379,6 +394,7 @@ function create_sin_jokers()
     return G.ctex_sin_jokers
 end
 
+-- Create negative examples card area in config
 function create_negative_examples()
     G.ctex_negative_examples = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
@@ -398,6 +414,7 @@ function create_negative_examples()
     return G.ctex_negative_examples
 end
 
+-- Create debuff examples card area in config
 function create_debuff_examples()
     G.ctex_debuff_examples = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
@@ -415,4 +432,47 @@ function create_debuff_examples()
     card_example.sprite_facing = "front"
     card_example.facing = "front"
     return G.ctex_debuff_examples
+end
+
+-- Add tooltips if extra tooltips are enabled
+local old_generate_card_ui = generate_card_ui
+function generate_card_ui(center, ...)
+    local full_ui_table = old_generate_card_ui(center, ...)
+    local key = center.key
+    local unused_index
+    local changed_index
+    if classic_textures.config.extra_info then 
+        for _, pack in ipairs(Malverk.config.selected) do
+            if pack == "texpack_ctex_unusedsprites" then 
+                unused_index = _
+            elseif pack == "texpack_ctex_changedsprites" then
+                changed_index = _
+            end
+        end
+        if unused_index ~= nil and changed_index ~= nil then 
+            if unused_index > changed_index then
+                if ctex.UNUSED_TEXT_CENTERS[key] then 
+                    old_generate_card_ui({key = "unused_" .. key, set = "Other"}, full_ui_table)
+                elseif ctex.CHANGED_TEXT_CENTERS[key] then 
+                    old_generate_card_ui({key = "changed_" .. key, set = "Other"}, full_ui_table)
+                end
+            elseif changed_index > unused_index then
+                if ctex.CHANGED_TEXT_CENTERS[key] then 
+                    old_generate_card_ui({key = "changed_" .. key, set = "Other"}, full_ui_table)
+                elseif ctex.UNUSED_TEXT_CENTERS[key] then 
+                    old_generate_card_ui({key = "unused_" .. key, set = "Other"}, full_ui_table)
+                end
+            end
+        elseif unused_index ~= nil and changed_index == nil then 
+            if ctex.UNUSED_TEXT_CENTERS[key] then 
+                old_generate_card_ui({key = "unused_" .. key, set = "Other"}, full_ui_table)
+            end
+        elseif changed_index ~= nil and unused_index == nil then
+            if ctex.CHANGED_TEXT_CENTERS[key] then 
+                old_generate_card_ui({key = "changed_" .. key, set = "Other"}, full_ui_table)
+            end 
+        end
+    end
+    
+    return full_ui_table
 end

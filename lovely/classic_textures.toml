@@ -1,0 +1,28 @@
+[manifest]
+version = "1.2.0"
+priority = 0
+
+# Blueprint Mod Fix:
+[[patches]] 
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.your_collection = function(e)"
+position = 'after'
+payload = '''
+if SMODS.find_mod("blueprint") then
+G.FUNCS.textures_button()
+end
+'''
+match_indent = true
+
+[[patches]] 
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.exit_overlay_menu = function()"
+position = 'after'
+payload = '''
+if SMODS.find_mod("blueprint") then
+G.FUNCS.textures_button()
+end
+'''
+match_indent = true

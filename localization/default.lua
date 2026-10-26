@@ -13,18 +13,393 @@ return {
             classic_textures = {
                 name = "Classic Textures",
                 text = {
-                    "A set of 4 {C:edition}Texture Packs{} with the aim",
+                    "Two {C:edition}Texture Packs{} with the aim",
                     "to bring the {C:red}old{}, {C:blue}unseen{} and ",
                     "{C:gold}classic{} sprites back to the game.",
                     " ",
-                    "Press {element:1}{} to",
-                    "see and select packs",
+                    "Press {element:1}{} to select packs",
                     " ",
-                    "{element:2}{} {element:3}{}",
-                    "Other projects of mine:",
-                    "{element:4}{}"
+                    "Classic Textures Links:",
+                    "{element:2}{} {element:3}{} {element:4}{}",
+                    " ",
+                    "Other projects:",
+                    "{element:5}{}"
                 }
             }
+        },
+        Other = {
+            changed_j_greedy_joker = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "'Sinful' Jokers",
+                    "were less {C:diamonds}vibrant{}"
+                }
+            },
+            changed_j_lusty_joker = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "'Sinful' Jokers",
+                    "were less {C:hearts}vibrant{}"
+                }
+            },
+            changed_j_wrathful_joker = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "'Sinful' Jokers",
+                    "were less {C:spades}vibrant{}"
+                }
+            },
+            changed_j_gluttenous_joker = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "'Sinful' Jokers",
+                    "were less {C:clubs}vibrant{}"
+                }
+            },
+            changed_j_jolly = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v9.0.2i-FULL{}",
+                    "Jolly Joker resembled",
+                    "the default 'Joker'"
+                }
+            },
+            changed_j_zany = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}, Zany",
+                    "was yellow & red instead",
+                    "of the green since"
+                }
+            },
+            changed_j_mad = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}, Mad",
+                    "was blue, yellow & red",
+                    "instead of the red since"
+                }
+            },
+            changed_j_crazy = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}, Crazy",
+                    "was blue & black instead",
+                    "of the yellow & orange since"
+                }
+            },
+            changed_j_ceremonial = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "thinner inner",
+                    "borders"
+                }
+            },
+            changed_j_8_ball = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.1f{}, 8 Ball ",
+                    "was {C:planet}Planet{} gen and",
+                    "the background was blue",
+                    "instead of the purple since" 
+                }
+            },
+            changed_j_scary_face = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "no borders",
+                }
+            },
+            changed_j_pareidolia = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "thinner inner",
+                    "borders"
+                }
+            },
+            changed_j_square = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.1f{}, Square",
+                    "was a rectangle",
+                }
+            },
+            changed_j_fortune_teller = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0q{}",
+                    "Fortune Teller had",
+                    "a third eye"
+                }
+            },
+            changed_j_flash = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "Flash Card's border",
+                    "was blue instead of",
+                    "the green it has now"
+                }
+            },
+            changed_j_sock_and_buskin = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "no borders",
+                }
+            },
+            changed_j_arrowhead = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "Arrowhead featured a more",
+                    "rounded design but was scrapped",
+                    "due to being too 'suggestive'"
+                }
+            },
+            changed_j_blueprint = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "no borders",
+                }
+            },
+            changed_j_oops = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "some Jokers had",
+                    "thinner inner",
+                    "borders"
+                }
+            },
+            changed_j_invisible = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v1.0.0h{}",
+                    "Invisible's design",
+                    "was a headless Jimbo",
+                }
+            },
+            changed_j_astronomer = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_j_caino = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.2i-full{}",
+                    "Canio was named Caino",
+                }
+            },
+            changed_c_pluto = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_mercury = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_uranus = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_venus = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_saturn = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_jupiter = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_earth = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_mars = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_neptune = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_planet_x = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_ceres = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_eris = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:attention}v0.9.0l-DEMO{}",
+                    "{C:planet}Planet{} cards were",
+                    "grey instead of the",
+                    "cyan used since"
+                }
+            },
+            changed_c_soul = {
+                name = "Classic Textures",
+                text = {
+                    "Before {C:spectral}Spectral{} Cards",
+                    "were added around {C:attention}v0.9.0q{}",
+                    "The Soul was styled and",
+                    "colored like {C:tarot}Tarot{} Cards"
+                }
+            },
+            unused_j_scholar = {
+                name = "Classic Textures",
+                text = {
+                    "Shown off by",
+                    "{C:attention}LocalThunk{} in the",
+                    "Balatro Discord"
+                }
+            },
+            unused_j_obelisk = {
+                name = "Classic Textures",
+                text = {
+                    "Shown off by",
+                    "{C:attention}LocalThunk{} in the",
+                    "Balatro Discord"
+                }
+            },
+            unused_j_diet_cola = {
+                name = "Classic Textures",
+                text = {
+                    "Shown off by",
+                    "{C:attention}LocalThunk{} in the",
+                    "Balatro Discord",
+                    "{s:0.8}The red design was {}",
+                    "{s:0.8}considered 'litigious'{}"
+                }
+            },
+            unused_j_ancient = {
+                name = "Classic Textures",
+                text = {
+                    "Found in the files",
+                    "of {C:attention}v0.9.2i-full{}",
+                }
+            },
+            unused_j_selzer = {
+                name = "Classic Textures",
+                text = {
+                    "Found in the files",
+                    "of {C:attention}v0.9.2i-full{}",
+                }
+            },
+            unused_j_bloodstone = {
+                name = "Classic Textures",
+                text = {
+                    "Shown off by",
+                    "{C:attention}LocalThunk{} in the",
+                    "Balatro Discord"
+                }
+            },
+            unused_j_oops = {
+                name = "Classic Textures",
+                text = {
+                    "Shown off by",
+                    "{C:attention}LocalThunk{} in the",
+                    "Balatro Discord",
+                    "{s:0.8}It was changed for consistency{}",
+                    "{s:0.8}with the color of probabilities{}"
+                }
+            },
+            unused_j_shoot_the_moon = {
+                name = "Classic Textures",
+                text = {
+                    "Seen in a video of",
+                    "an old dev version",
+                    "that {C:attention}LocalThunk{}",
+                    "posted to Twitter"
+                }
+            },
+            unused_v_retcon = {
+                name = "Classic Textures",
+                text = {
+                   "Found in the files",
+                    "of {C:attention}v0.8.6b{}",
+                }
+            },
         },
         Joker = {
             j_ctex_zebra = {
@@ -84,7 +459,8 @@ return {
                 },
                 {
                     'Drew new secret {C:planet}Planet{} sprites',
-                    'for the Old Planets Pack'
+                    'for the Changed Sprites Pack',
+                    '{C:inactive,s:0.9}[for consistency purposes]{}'
                 },
                 {
                     'Background art drew by:',
@@ -95,7 +471,11 @@ return {
         alt_texture = {
             alt_tex_ctex_pluto = {
                 name = 'Pluto',
-                c_pluto = { }
+                c_pluto = { 
+                    text={
+                        "new line here"
+                    },
+                }
             },
             alt_tex_ctex_mercury = {
                 name = 'Mercury',
@@ -336,8 +716,18 @@ return {
             alt_tex_ctex_shoot_the_moon = {
                 name = 'Shoot the Moon',
                 j_shoot_the_moon= {
-
+                    
                 }
+            },
+            alt_tex_ctex_retcon = {
+                name = 'Retcon',
+                v_retcon= {
+                    
+                }
+            },
+            alt_tex_ctex_stake = {
+                name = 'Star Stake Stickers',
+    
             },
         },
         texture_packs = {

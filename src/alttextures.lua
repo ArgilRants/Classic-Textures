@@ -194,6 +194,7 @@ AltTexture{
     path = 'stake.png',
 	stickers = true,
 	original_sheet = true,
+	localization = true
 }
 
 AltTexture{
@@ -423,30 +424,12 @@ AltTexture{
 	localization = true,
 }
 
-TexturePack{
-    key = 'oldplanets',
-    textures = {
-        'ctex_earth',
-        'ctex_mercury',
-		'ctex_uranus',
-		'ctex_venus',
-		'ctex_saturn',
-		'ctex_jupiter',
-		'ctex_mars',
-		'ctex_neptune',
-		'ctex_planet_x',
-		'ctex_ceres',
-		'ctex_eris',
-		'ctex_pluto',
-		'ctex_astronomer',
-    },
-}
-
-TexturePack{
-    key = 'starstickers',
-    textures = {
-		'ctex_stake',
-    },
+AltTexture{
+    key = 'retcon',
+    set = 'Voucher', 
+    path = 'retcon.png',
+    keys = {'v_retcon'},
+	localization = true,
 }
 
 TexturePack{
@@ -460,6 +443,8 @@ TexturePack{
         'ctex_obelisk',
         'ctex_oops',
         'ctex_shoot_the_moon',
+        'ctex_retcon',
+		'ctex_stake',
     },
 }
 
@@ -486,6 +471,19 @@ TexturePack{
         'ctex_soul',
         'ctex_erratic',
         'ctex_seals',
+        'ctex_earth',
+        'ctex_mercury',
+		'ctex_uranus',
+		'ctex_venus',
+		'ctex_saturn',
+		'ctex_jupiter',
+		'ctex_mars',
+		'ctex_neptune',
+		'ctex_planet_x',
+		'ctex_ceres',
+		'ctex_eris',
+		'ctex_pluto',
+		'ctex_astronomer',
     },
 }
 

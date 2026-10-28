@@ -394,8 +394,8 @@ AltTexture{
     key = 'soul',
     set = 'Spectral', 
     path = 'soul.png',
+    soul = 'enhancers.png',
     keys = {'c_soul'},
-    soul_keys = {'c_soul'},
 	localization = true,
 }
 
@@ -411,7 +411,7 @@ AltTexture{
     key = 'seals',
     set = 'Seal', 
     original_sheet = true,
-    path = 'seals.png',
+    path = 'enhancers.png',
     keys = {'Gold'},
 	localization = true,
 }

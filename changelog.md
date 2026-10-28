@@ -31,7 +31,7 @@
 ## Version 1.1.1
 ### Fixes
 - Fixed Invisible and Soul not re-enabling their shaders when disabled by the config of the changed sprites pack (now you can disable them and they look like vanilla again!)
-- 'Fixed' incompatability with [Blueprint mod](https://github.com/stupxd/Blueprint).
+- 'Fixed' incompatibility with [Blueprint mod](https://github.com/stupxd/Blueprint).
 
 ## Version 1.2.0
 ### Additions: 
@@ -41,7 +41,15 @@
 ### Changes
 - Old Planets Pack has been moved into the Changed Sprites Pack
 - Star Stake Stickers Pack has been moved into the Unused Sprites Pack (These were done to help squash some confusion, as well as just consolidate)
-- Made my fix for the incompatability with [Blueprint mod](https://github.com/stupxd/Blueprint) a lovely patch
+- Made my fix for the incompatibility with [Blueprint mod](https://github.com/stupxd/Blueprint) a lovely patch
 
 ### Fixes
 - Fixed issue where gold seal localisation was always enabled even if it was disbaled in the Changed Sprites Pack config
+
+## Version 1.2.1
+### Changes
+- Added an extra negative consumable and debuffed joker example in config tab
+- When Classic Textures checks if a texture is active it now makes sure its the Classic Sprite (this is so other texture packs can override Classic Textures and not have the Classic Textures badge and Classic Textures Extra Description Info showing)
+
+### Fixes
+- Fixed incompatibility with [PolyTrans](https://github.com/lilaclila/Polytrans) 

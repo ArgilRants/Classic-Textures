@@ -63,7 +63,7 @@ SMODS.Consumable:take_ownership('soul', {
 set_sprites = function(self, card, front)
     card.ignore_base_shader = card.ignore_base_shader or {}
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul') then
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul', "c_soul") then
             card.ignore_base_shader['c_soul'] = true
         else 
             card.ignore_base_shader['c_soul'] = nil
@@ -81,7 +81,7 @@ set_sprites = function(self, card, front)
     card.ignore_base_shader = card.ignore_base_shader or {}
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
         card.ignore_base_shader['j_invisible'] = true
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_invisible') then
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_invisible', 'j_invisible') then
             card.ignore_base_shader['j_invisible'] = true
         else 
             card.ignore_base_shader['j_invisible'] = nil

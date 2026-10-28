@@ -61,8 +61,19 @@ function create_negative_consumable_example()
     return card
 end
 
+function create_negative_consumable_example_2()
+    card = SMODS.create_card{key = "c_sigil", edition = "e_negative", silent = true, immediate = true, skip_materialize = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
+    return card
+end
+
 function create_debuffed_joker_example()
     card = SMODS.create_card{key = "j_smeared", edition = "e_polychrome", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
+    card:set_debuff(true)
+    return card
+end
+
+function create_debuffed_joker_example_2()
+    card = SMODS.create_card{key = "j_hologram", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     card:set_debuff(true)
     return card
 end
@@ -83,9 +94,13 @@ function ctex.is_pack_active(check_pack)
 end
 
 -- Check if a textures key is set to true in that specific packs config
-function ctex.is_texture_active(check_pack, check_texture)
+function ctex.is_texture_active(check_pack, check_texture, key)
     if not (Malverk and Malverk.config and Malverk.config.texture_configs) then return false end
-    if Malverk.config.texture_configs[check_pack][check_texture] == true then return true end
+    if Malverk.config.texture_configs[check_pack][check_texture] == true then 
+        if key and G.P_CENTERS[key].atlas == check_texture then
+            return true 
+        end
+    end
     return false
 end
 
@@ -106,15 +121,15 @@ function Malverk.update_atlas(...)
             j_oops = nil,
         }
 
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_scholar') then ctex.UNUSED_TEXT_CENTERS.j_scholar = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_diet_cola') then ctex.UNUSED_TEXT_CENTERS.j_diet_cola = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_ancient') then ctex.UNUSED_TEXT_CENTERS.j_ancient = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_selzer') then ctex.UNUSED_TEXT_CENTERS.j_selzer = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_bloodstone') then ctex.UNUSED_TEXT_CENTERS.j_bloodstone = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_obelisk') then ctex.UNUSED_TEXT_CENTERS.j_obelisk = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_oops') then ctex.UNUSED_TEXT_CENTERS.j_oops = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_shoot_the_moon') then ctex.UNUSED_TEXT_CENTERS.j_shoot_the_moon = true end
-        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_retcon') then ctex.UNUSED_TEXT_CENTERS.v_retcon = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_scholar','j_scholar') then ctex.UNUSED_TEXT_CENTERS.j_scholar = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_diet_cola', 'j_diet_cola') then ctex.UNUSED_TEXT_CENTERS.j_diet_cola = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_ancient', 'j_ancient') then ctex.UNUSED_TEXT_CENTERS.j_ancient = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_selzer', 'j_selzer') then ctex.UNUSED_TEXT_CENTERS.j_selzer = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_bloodstone', 'j_bloodstone') then ctex.UNUSED_TEXT_CENTERS.j_bloodstone = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_obelisk', 'j_obelisk') then ctex.UNUSED_TEXT_CENTERS.j_obelisk = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_oops', 'j_oops') then ctex.UNUSED_TEXT_CENTERS.j_oops = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_shoot_the_moon', 'j_shoot_the_moon') then ctex.UNUSED_TEXT_CENTERS.j_shoot_the_moon = true end
+        if ctex.is_texture_active('texpack_ctex_unusedsprites', 'alt_tex_ctex_retcon', 'v_retcon') then ctex.UNUSED_TEXT_CENTERS.v_retcon = true end
 
     else
         ctex.UNUSED_TEXT_CENTERS = {
@@ -169,38 +184,38 @@ function Malverk.update_atlas(...)
         ctex.CHANGED_TEXT_CENTERS.j_greedy_joker = true 
         ctex.CHANGED_TEXT_CENTERS.j_gluttenous_joker = true
 
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_flash') then ctex.CHANGED_TEXT_CENTERS.j_flash = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_invisible') then ctex.CHANGED_TEXT_CENTERS.j_invisible = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square') then ctex.CHANGED_TEXT_CENTERS.j_square = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_caino') then ctex.CHANGED_TEXT_CENTERS.j_caino = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_8_ball') then ctex.CHANGED_TEXT_CENTERS.j_8_ball = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_arrowhead') then ctex.CHANGED_TEXT_CENTERS.j_arrowhead = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_blueprint') then ctex.CHANGED_TEXT_CENTERS.j_blueprint = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_ceremonial') then ctex.CHANGED_TEXT_CENTERS.j_ceremonial = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_oops_borderless') then ctex.CHANGED_TEXT_CENTERS.j_oops = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_pareidolia') then ctex.CHANGED_TEXT_CENTERS.j_pareidolia = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_scary_face') then ctex.CHANGED_TEXT_CENTERS.j_scary_face = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_sock_and_buskin') then ctex.CHANGED_TEXT_CENTERS.j_sock_and_buskin = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_fortune_teller') then ctex.CHANGED_TEXT_CENTERS.j_fortune_teller = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_jolly') then ctex.CHANGED_TEXT_CENTERS.j_jolly = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_zany') then ctex.CHANGED_TEXT_CENTERS.j_zany = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mad') then ctex.CHANGED_TEXT_CENTERS.j_mad = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_crazy') then ctex.CHANGED_TEXT_CENTERS.j_crazy = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul') then ctex.CHANGED_TEXT_CENTERS.c_soul = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_erratic') then ctex.CHANGED_TEXT_CENTERS.b_erratic = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_pluto') then ctex.CHANGED_TEXT_CENTERS.c_pluto = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mercury') then ctex.CHANGED_TEXT_CENTERS.c_mercury = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_uranus') then ctex.CHANGED_TEXT_CENTERS.c_uranus = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_venus') then ctex.CHANGED_TEXT_CENTERS.c_venus = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_saturn') then ctex.CHANGED_TEXT_CENTERS.c_saturn = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_jupiter') then ctex.CHANGED_TEXT_CENTERS.c_jupiter = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_earth') then ctex.CHANGED_TEXT_CENTERS.c_earth = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mars') then ctex.CHANGED_TEXT_CENTERS.c_mars = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_neptune') then ctex.CHANGED_TEXT_CENTERS.c_neptune = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_planet_x') then ctex.CHANGED_TEXT_CENTERS.c_planet_x = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_ceres') then ctex.CHANGED_TEXT_CENTERS.c_ceres = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_eris') then ctex.CHANGED_TEXT_CENTERS.c_eris = true end
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_astronomer') then ctex.CHANGED_TEXT_CENTERS.j_astronomer = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_flash', 'j_flash') then ctex.CHANGED_TEXT_CENTERS.j_flash = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_invisible', 'j_invisible') then ctex.CHANGED_TEXT_CENTERS.j_invisible = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square', 'j_square') then ctex.CHANGED_TEXT_CENTERS.j_square = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_caino', 'j_caino') then ctex.CHANGED_TEXT_CENTERS.j_caino = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_8_ball', 'j_8_ball') then ctex.CHANGED_TEXT_CENTERS.j_8_ball = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_arrowhead', 'j_arrowhead') then ctex.CHANGED_TEXT_CENTERS.j_arrowhead = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_blueprint', 'j_blueprint') then ctex.CHANGED_TEXT_CENTERS.j_blueprint = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_ceremonial', 'j_ceremonial') then ctex.CHANGED_TEXT_CENTERS.j_ceremonial = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_oops_borderless', 'j_oops') then ctex.CHANGED_TEXT_CENTERS.j_oops = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_pareidolia', 'j_pareidolia') then ctex.CHANGED_TEXT_CENTERS.j_pareidolia = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_scary_face', 'j_scary_face') then ctex.CHANGED_TEXT_CENTERS.j_scary_face = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_sock_and_buskin', 'j_sock_and_buskin') then ctex.CHANGED_TEXT_CENTERS.j_sock_and_buskin = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_fortune_teller', 'j_fortune_teller') then ctex.CHANGED_TEXT_CENTERS.j_fortune_teller = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_jolly', 'j_jolly') then ctex.CHANGED_TEXT_CENTERS.j_jolly = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_zany', 'j_zany') then ctex.CHANGED_TEXT_CENTERS.j_zany = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mad', 'j_mad') then ctex.CHANGED_TEXT_CENTERS.j_mad = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_crazy', 'j_crazy') then ctex.CHANGED_TEXT_CENTERS.j_crazy = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_soul', 'c_soul') then ctex.CHANGED_TEXT_CENTERS.c_soul = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_erratic', 'b_erratic') then ctex.CHANGED_TEXT_CENTERS.b_erratic = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_pluto', 'c_pluto') then ctex.CHANGED_TEXT_CENTERS.c_pluto = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mercury', 'c_mercury') then ctex.CHANGED_TEXT_CENTERS.c_mercury = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_uranus', 'c_uranus') then ctex.CHANGED_TEXT_CENTERS.c_uranus = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_venus', 'c_venus') then ctex.CHANGED_TEXT_CENTERS.c_venus = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_saturn', 'c_saturn') then ctex.CHANGED_TEXT_CENTERS.c_saturn = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_jupiter', 'c_jupiter') then ctex.CHANGED_TEXT_CENTERS.c_jupiter = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_earth', 'c_earth') then ctex.CHANGED_TEXT_CENTERS.c_earth = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_mars', 'c_mars') then ctex.CHANGED_TEXT_CENTERS.c_mars = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_neptune', 'c_neptune') then ctex.CHANGED_TEXT_CENTERS.c_neptune = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_planet_x', 'c_planet_x') then ctex.CHANGED_TEXT_CENTERS.c_planet_x = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_ceres', 'c_ceres') then ctex.CHANGED_TEXT_CENTERS.c_ceres = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_eris', 'c_eris') then ctex.CHANGED_TEXT_CENTERS.c_eris = true end
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_astronomer', 'j_astronomer') then ctex.CHANGED_TEXT_CENTERS.j_astronomer = true end
 
     else
         ctex.CHANGED_TEXT_CENTERS = {
@@ -253,7 +268,7 @@ end
 -- Check if square is enabled, and alter its pixel size
 function square_check()
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
-        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square') then
+        if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square', 'j_square') then
             G.P_CENTERS.j_square.pixel_size = {h = 124}
             if G.jokers and G.jokers.card then
                 for j, card in ipairs(G.jokers.cards) do 
@@ -404,13 +419,17 @@ function create_negative_examples()
         { card_limit = 2, type = "title", highlight_limit = 0, collection = true }
     )
     local joker_example = create_negative_joker_example()
+    local consumable_example = create_negative_consumable_example()
+    local consumable_example_2 = create_negative_consumable_example_2()
     G.ctex_negative_examples:emplace(joker_example)
+    G.ctex_negative_examples:emplace(consumable_example)
+    G.ctex_negative_examples:emplace(consumable_example_2)
     joker_example.sprite_facing = "front"
     joker_example.facing = "front"
-    local consumable_example = create_negative_consumable_example()
-    G.ctex_negative_examples:emplace(consumable_example)
     consumable_example.sprite_facing = "front"
     consumable_example.facing = "front"
+    consumable_example_2.sprite_facing = "front"
+    consumable_example_2.facing = "front"
     return G.ctex_negative_examples
 end
 
@@ -424,11 +443,15 @@ function create_debuff_examples()
         { card_limit = 2, type = "title", highlight_limit = 0, collection = true }
     )
     local joker_example = create_debuffed_joker_example()
+    local joker_example_2 = create_debuffed_joker_example_2()
+    local card_example = create_debuffed_card_example()
     G.ctex_debuff_examples:emplace(joker_example)
+    G.ctex_debuff_examples:emplace(joker_example_2)
+    G.ctex_debuff_examples:emplace(card_example)
     joker_example.sprite_facing = "front"
     joker_example.facing = "front"
-    local card_example = create_debuffed_card_example()
-    G.ctex_debuff_examples:emplace(card_example)
+    joker_example_2.sprite_facing = "front"
+    joker_example_2.facing = "front"
     card_example.sprite_facing = "front"
     card_example.facing = "front"
     return G.ctex_debuff_examples

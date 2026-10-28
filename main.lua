@@ -1,6 +1,8 @@
 -- Global variables:
 classic_textures = SMODS.current_mod
 
+old_soul_config = Malverk.config.texture_configs["texpack_ctex_changedsprites"]["alt_tex_ctex_soul"] or nil
+
 -- list of sin jokers
 sin_jokers = {
     {

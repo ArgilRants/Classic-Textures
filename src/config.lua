@@ -3,6 +3,7 @@ if classic_textures.config.classic_negative_shader == nil then classic_textures.
 if classic_textures.config.classic_debuff_shader == nil then classic_textures.config.classic_debuff_shader = false end
 if classic_textures.config.bordered_sin_jokers == nil then classic_textures.config.bordered_sin_jokers = false end
 if classic_textures.config.extra_info == nil then classic_textures.config.extra_info = false end
+if classic_textures.config.badge == nil then classic_textures.config.badge = true end
 G.classic_textures_config = classic_textures.config_tab
 
 classic_textures.ui_config = {
@@ -91,31 +92,68 @@ classic_textures.config_tab = function()
                         }
                     }},
                 }},
+                {n=G.UIT.C, config={align = "cm", padding = 0.1}, nodes={
+                    {n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={
+                        {n = G.UIT.T, config = {text = "Sinful Jokers:", colour = G.C.UI.TEXT_LIGHT, scale = 0.4}},
+                    }},
+                    {n=G.UIT.R, config={align = "cm", padding = 0.05, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1}, nodes={
+                        {n = G.UIT.O, config = {object=create_sin_jokers()}},
+                    }},
+                    {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
+                        create_toggle{
+                            label = "Bordered Sin Jokers",
+                            ref_table = classic_textures.config,
+                            ref_value = 'bordered_sin_jokers',
+                        }
+                    }},
+                    {n=G.UIT.R, config={align = "cm"}, nodes={
+                        {n = G.UIT.T, config = {text = "[Must have Changed Sprites Pack enabled to take effect]", colour = HEX("ffffff80"), scale = 0.25}},
+                    }},
+                }},
             }},
             {n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={
-                {n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={
-                    {n = G.UIT.T, config = {text = "Sinful Jokers:", colour = G.C.UI.TEXT_LIGHT, scale = 0.4}},
+                {n=G.UIT.C, config={padding = 0.2}, nodes={
+                    {n=G.UIT.R, config={align = "cm", padding = 0}, nodes={
+                        {n = G.UIT.T, config = {text = "Text and Badge options:", colour = G.C.UI.TEXT_LIGHT, scale = 0.4}},
+                    }},
+                    {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
+                        create_toggle{
+                            label = "Extra Description Info",
+                            ref_table = classic_textures.config,
+                            ref_value = 'extra_info',
+                        },
+                    }},
+                    {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
+                        create_toggle{
+                            label = "Classic Textures Badges",
+                            ref_table = classic_textures.config,
+                            ref_value = 'badge',
+                        },
+                    }},
                 }},
-                {n=G.UIT.R, config={align = "cm", padding = 0.05, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1}, nodes={
-                    {n = G.UIT.O, config = {object=create_sin_jokers()}},
+                {n=G.UIT.C, config={padding = 0.2}, nodes={
+                    {n=G.UIT.R, config={padding = 0}, nodes={
+                        {n=G.UIT.R, config = {align = "cm", r = 0.1, hover = true, minh = 0.8, shadow = true, colour = G.C.BLUE, minw = 4 , button = "ctex_recommended_options"}, nodes = {
+                            {n=G.UIT.R, config = {align="cm"}, nodes = {
+                                {n=G.UIT.T, config = {align="cm", text = "Recommended Options", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                            }},
+                        }},
+                    }},
+                    {n=G.UIT.R, config={padding = 0}, nodes={
+                        {n=G.UIT.R, config = {align = "cm", r = 0.1, hover = true, minh = 0.6, shadow = true, colour = G.C.GOLD, minw = 4 , button = "ctex_all_options"}, nodes = {
+                            {n=G.UIT.R, config = {align="cm"}, nodes = {
+                                {n=G.UIT.T, config = {align="cm", text = "Enable All", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                            }},
+                        }},
+                    }},
+                    {n=G.UIT.R, config={padding = 0}, nodes={
+                        {n=G.UIT.R, config = {align = "cm", r = 0.1, hover = true, minh = 0.6, shadow = true, colour = G.C.RED, minw = 4 , button = "ctex_reset_options"}, nodes = {
+                            {n=G.UIT.R, config = {align="cm"}, nodes = {
+                                {n=G.UIT.T, config = {align="cm", text = "Reset These Options", scale = 0.4, color = G.C.UI.TEXT_LIGHT}}
+                            }},
+                        }},
+                    }},
                 }},
-                {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
-                    create_toggle{
-                        label = "Bordered Sin Jokers",
-                        ref_table = classic_textures.config,
-                        ref_value = 'bordered_sin_jokers',
-                    }
-                }},
-                {n=G.UIT.R, config={align = "cm"}, nodes={
-                    {n = G.UIT.T, config = {text = "[Must have Changed Sprites Pack enabled to take effect]", colour = HEX("ffffff80"), scale = 0.3}},
-                }},
-            }},
-            {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
-                create_toggle{
-                    label = "Extra Description Info",
-                    ref_table = classic_textures.config,
-                    ref_value = 'extra_info',
-                }
             }},
         }
     }

@@ -472,9 +472,7 @@ return {
             alt_tex_ctex_pluto = {
                 name = 'Pluto',
                 c_pluto = { 
-                    text={
-                        "new line here"
-                    },
+                    
                 }
             },
             alt_tex_ctex_mercury = {
@@ -529,7 +527,6 @@ return {
                 name = 'Scholar',
                 j_scholar = {
                     name = "The A", 
-                    
                 }
             },
             alt_tex_ctex_diet_cola = {

@@ -1,6 +1,6 @@
 ctex = ctex or {}
 
--- Buttons (Links)
+-- Buttons
 function G.FUNCS.ctex_github(e)
     love.system.openURL("https://github.com/ArgilRants/Classic-Textures")
 end
@@ -15,6 +15,30 @@ end
 
 function G.FUNCS.ctex_wiki(e)
     love.system.openURL("https://balatromods.miraheze.org/wiki/Classic_Textures")
+end
+
+function G.FUNCS.ctex_reset_options(e)
+    classic_textures.config.classic_negative_shader = false
+    classic_textures.config.classic_debuff_shader = false
+    classic_textures.config.bordered_sin_jokers = false
+    classic_textures.config.extra_info = false
+    classic_textures.config.badge = true
+end
+
+function G.FUNCS.ctex_recommended_options(e)
+    classic_textures.config.classic_negative_shader = true
+    classic_textures.config.classic_debuff_shader = false
+    classic_textures.config.bordered_sin_jokers = false
+    classic_textures.config.extra_info = true
+    classic_textures.config.badge = true
+end
+
+function G.FUNCS.ctex_all_options(e)
+    classic_textures.config.classic_negative_shader = true
+    classic_textures.config.classic_debuff_shader = true
+    classic_textures.config.bordered_sin_jokers = true
+    classic_textures.config.extra_info = true
+    classic_textures.config.badge = true
 end
 
 -- Custom graident for 'Creator' badge
@@ -97,8 +121,14 @@ end
 function ctex.is_texture_active(check_pack, check_texture, key)
     if not (Malverk and Malverk.config and Malverk.config.texture_configs) then return false end
     if Malverk.config.texture_configs[check_pack][check_texture] == true then 
-        if key and G.P_CENTERS[key].atlas == check_texture then
-            return true 
+        if check_texture == "alt_tex_ctex_stake" then 
+            if G.P_STAKES["stake_gold"].atlas == check_texture then
+                return true
+            end
+        else
+            if key and G.P_CENTERS[key].atlas == check_texture then
+                return true 
+            end
         end
     end
     return false
@@ -108,8 +138,14 @@ end
 local ref_update_atlas = Malverk.update_atlas
 function Malverk.update_atlas(...)
     square_check()
-    set_sticker_loc()
-    set_seal_loc()
+    ctex_set_loc()
+    for _, pack in ipairs(Malverk.config.selected) do
+        if pack == "texpack_ctex_unusedsprites" then 
+            unused_index = _
+        elseif pack == "texpack_ctex_changedsprites" then
+            changed_index = _
+        end
+    end
     if ctex.is_pack_active('texpack_ctex_unusedsprites') then
         ctex.UNUSED_TEXT_CENTERS = {
             j_scholar = nil,
@@ -241,7 +277,7 @@ if SMODS.create_mod_badges then
     function SMODS.create_mod_badges(obj, badges)
         ref_create_mod_badges(obj, badges)
         local card = ctex.popup_card
-        if card and obj and obj == (card.config and card.config.center) and ctex.is_affected(card) then
+        if card and obj and obj == (card.config and card.config.center) and ctex.is_affected(card) and classic_textures.config.badge == true then
             badges[#badges + 1] = ctex.create_badge(card)
         end
     end
@@ -300,8 +336,9 @@ function square_check()
 end
 
 -- Check is unsued sprites pack is enabled and then check if the stakes (the star stake stickers) are enabled and then change the Localisation
-function set_sticker_loc()
+function ctex_set_loc()
     if ctex.is_pack_active('texpack_ctex_unusedsprites') then
+        -- Sticker Loc
         if ctex.is_texture_active("texpack_ctex_unusedsprites", "alt_tex_ctex_stake") then
             G.localization.descriptions.Other.white_sticker.name = 'White Star'
             G.localization.descriptions.Other.red_sticker.name = 'Red Star'
@@ -331,19 +368,7 @@ function set_sticker_loc()
         G.localization.descriptions.Other.orange_sticker.name = 'Orange Sticker'
         G.localization.descriptions.Other.gold_sticker.name = 'Gold Sticker'
     end
-end
-
--- Check if changed sprites pack is enabled and then check if the seals are enabled and then change the gold seal localisation
-function set_seal_loc()
-    if ctex.is_pack_active('texpack_ctex_changedsprites') then
-        if ctex.is_texture_active("texpack_ctex_changedsprites", "alt_tex_ctex_seals") then
-            G.localization.descriptions.Other.gold_seal.name = "Classic Gold Seal"
-        else
-            G.localization.descriptions.Other.gold_seal.name = "Gold Seal"
-        end
-    else
-        G.localization.descriptions.Other.gold_seal.name = "Gold Seal"
-    end
+        
 end
 
 -- Create credits card area
@@ -462,16 +487,7 @@ local old_generate_card_ui = generate_card_ui
 function generate_card_ui(center, ...)
     local full_ui_table = old_generate_card_ui(center, ...)
     local key = center.key
-    local unused_index
-    local changed_index
     if classic_textures.config.extra_info then 
-        for _, pack in ipairs(Malverk.config.selected) do
-            if pack == "texpack_ctex_unusedsprites" then 
-                unused_index = _
-            elseif pack == "texpack_ctex_changedsprites" then
-                changed_index = _
-            end
-        end
         if unused_index ~= nil and changed_index ~= nil then 
             if unused_index > changed_index then
                 if ctex.UNUSED_TEXT_CENTERS[key] then 

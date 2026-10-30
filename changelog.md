@@ -52,4 +52,21 @@
 - When Classic Textures checks if a texture is active it now makes sure its the Classic Sprite (this is so other texture packs can override Classic Textures and not have the Classic Textures badge and Classic Textures Extra Description Info showing)
 
 ### Fixes
-- Fixed incompatibility with [PolyTrans](https://github.com/lilaclila/Polytrans) 
+- Fixed incompatibility with [PolyTrans](https://github.com/lilaclila/Polytrans)
+
+## Version 1.2.2
+### Additions
+- Added new 'Classic Textures Badges' option (Enabled by default) to config tab
+- Added 'Recommended Options' button to config tab
+- Added 'Enable All' button to config tab
+- Added 'Reset These Options' button to config tab
+
+### Changes
+- Removed Gold Seal localisation
+- Reordered config tab
+
+### Fixes 
+- Fixed and removed left over pixels in soul rock and gold seal sprite file
+- Fixed Star Stake Sticker Localisation for the like 4th time lol
+- Extra Description Info should be less laggy now
+- Fixed left over Pluto description lol, thanks jandom

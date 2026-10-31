@@ -5,7 +5,7 @@ classic_textures_unused_index = nil
 classic_textures_changed_index = nil
 
 -- list of sin jokers
-sin_jokers = {
+ctex_sin_jokers = {
     {
         "j_greedy_joker",
         "j_lusty_joker",
@@ -15,7 +15,7 @@ sin_jokers = {
 }
 
 -- List of credits jokers
-credits_jokers = {
+ctex_credits_jokers = {
     {
         "j_ctex_argil",
         "j_ctex_lilo",
@@ -35,6 +35,6 @@ assert(SMODS.load_file('src/config.lua'))()
 classic_textures.menu_cards = function()
     return {
         remove_original = true,
-        ctex_create_main_menu_card()
+        ctex.create_main_menu_card()
     }
 end

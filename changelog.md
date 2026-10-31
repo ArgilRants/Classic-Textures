@@ -74,3 +74,8 @@
 ## Version 1.2.3
 ### Fixes
 - Make all functions have a prefix (should've done this from the start tbh)
+
+## Version 1.2.4
+### Fixes
+- More prefix stuff.
+- Better compatability with Capture All and basically any other mod

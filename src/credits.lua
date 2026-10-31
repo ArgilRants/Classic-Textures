@@ -143,7 +143,7 @@ SMODS.Joker{
                 elements = {
                     { n=G.UIT.R, config = {align="cm"}, nodes = {
                         { n=G.UIT.O, config= {object =
-                            ctex_create_janadlatro()
+                            ctex.create_janadlatro()
                         }},
                     } },
                 }
@@ -172,7 +172,7 @@ classic_textures.credits_tab = function()
             {n = G.UIT.T, config = {text = "was created by:", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}},
     }},
     {n=G.UIT.R, config={align = "cm", padding = 0.5, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1}, nodes={
-        {n = G.UIT.O, config = {object=ctex_create_credits()}},
+        {n = G.UIT.O, config = {object=ctex.create_credits()}},
     }},
     {n=G.UIT.R, config={align = "cm", padding = 0}, nodes={
         {n = G.UIT.T, config = {text = "[Hover over the Jokers for more info]", colour = HEX("ffffff80"), scale = 0.4}},

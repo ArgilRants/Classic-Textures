@@ -64,7 +64,7 @@ classic_textures.config_tab = function()
                     }},
                     { n=G.UIT.R, config = {align = "cm", padding = 0.05, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1 }, nodes = {
                         { n=G.UIT.O, config= { object =
-                            create_negative_examples()
+                            ctex_create_negative_examples()
                         }},
                     }},
                     {n = G.UIT.R, config = { align = "cm", padding = 0 },nodes = {
@@ -81,7 +81,7 @@ classic_textures.config_tab = function()
                     }},
                     { n=G.UIT.R, config = {align = "cm", padding = 0.05, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1 }, nodes = {
                         { n=G.UIT.O, config= { object =
-                            create_debuff_examples()
+                            ctex_create_debuff_examples()
                         }},
                     }},
                     {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
@@ -97,7 +97,7 @@ classic_textures.config_tab = function()
                         {n = G.UIT.T, config = {text = "Sinful Jokers:", colour = G.C.UI.TEXT_LIGHT, scale = 0.4}},
                     }},
                     {n=G.UIT.R, config={align = "cm", padding = 0.05, colour = darken(G.C.BLACK, 0.2), emboss = 0.05, r = 0.1}, nodes={
-                        {n = G.UIT.O, config = {object=create_sin_jokers()}},
+                        {n = G.UIT.O, config = {object=ctex_create_sin_jokers()}},
                     }},
                     {n = G.UIT.R, config = {align = "cm", padding = 0},nodes = {
                         create_toggle{

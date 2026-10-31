@@ -35,6 +35,6 @@ assert(SMODS.load_file('src/config.lua'))()
 classic_textures.menu_cards = function()
     return {
         remove_original = true,
-        create_main_menu_card()
+        ctex_create_main_menu_card()
     }
 end

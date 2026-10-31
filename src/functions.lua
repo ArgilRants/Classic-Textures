@@ -58,7 +58,7 @@ G.C.CTEX_BADGE = SMODS.Gradient{
 }
 
 -- Create cards:
-function create_main_menu_card()
+function ctex_create_main_menu_card()
     card = {
         {front = "H_K", edition = "e_negative"},
         {front = "H_5", edition = "e_negative"},
@@ -69,40 +69,40 @@ function create_main_menu_card()
     return card[num]
 end
 
-function create_janadlatro()
+function ctex_create_janadlatro()
     card = SMODS.create_card{set = "Base", front = "C_9", edition = "e_polychrome", enhancement = "m_steel", seal = "Blue", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     card:set_debuff(true)
     return card
 end
 
-function create_negative_joker_example()
+function ctex_create_negative_joker_example()
     card = SMODS.create_card{key = "j_smeared", edition = "e_negative", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     return card
 end
 
-function create_negative_consumable_example()
+function ctex_create_negative_consumable_example()
     card = SMODS.create_card{key = "c_lovers", edition = "e_negative", silent = true, immediate = true, skip_materialize = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     return card
 end
 
-function create_negative_consumable_example_2()
+function ctex_create_negative_consumable_example_2()
     card = SMODS.create_card{key = "c_sigil", edition = "e_negative", silent = true, immediate = true, skip_materialize = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     return card
 end
 
-function create_debuffed_joker_example()
+function ctex_create_debuffed_joker_example()
     card = SMODS.create_card{key = "j_smeared", edition = "e_polychrome", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     card:set_debuff(true)
     return card
 end
 
-function create_debuffed_joker_example_2()
+function ctex_create_debuffed_joker_example_2()
     card = SMODS.create_card{key = "j_hologram", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     card:set_debuff(true)
     return card
 end
 
-function create_debuffed_card_example()
+function ctex_create_debuffed_card_example()
     card = SMODS.create_card{set = "Base", front = "H_Q", edition = "e_holo", enhancement = "m_wild", seal = "Red", silent = true, immediate = true, area = G.title_top, scale = {w = 0.7, h = 0.7}}
     card:set_debuff(true)
     return card
@@ -137,7 +137,7 @@ end
 -- Update stuff when Malverk updates the atlas'
 local ref_update_atlas = Malverk.update_atlas
 function Malverk.update_atlas(...)
-    square_check()
+    ctex_square_check()
     ctex_set_loc()
     for _, pack in ipairs(Malverk.config.selected) do
         if pack == "texpack_ctex_unusedsprites" then 
@@ -302,7 +302,7 @@ function ctex.create_badge(card)
 end
 
 -- Check if square is enabled, and alter its pixel size
-function square_check()
+function ctex_square_check()
     if ctex.is_pack_active('texpack_ctex_changedsprites') then
         if ctex.is_texture_active('texpack_ctex_changedsprites', 'alt_tex_ctex_square', 'j_square') then
             G.P_CENTERS.j_square.pixel_size = {h = 124}
@@ -372,7 +372,7 @@ function ctex_set_loc()
 end
 
 -- Create credits card area
-function create_credits()
+function ctex_create_credits()
     local set = credits_jokers[1]
     G.ctex_credit_jokers = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
@@ -404,7 +404,7 @@ function create_credits()
 end
 
 -- Create sin jokers card area in config
-function create_sin_jokers()
+function ctex_create_sin_jokers()
     local set = sin_jokers[1]
     G.ctex_sin_jokers = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
@@ -435,7 +435,7 @@ function create_sin_jokers()
 end
 
 -- Create negative examples card area in config
-function create_negative_examples()
+function ctex_create_negative_examples()
     G.ctex_negative_examples = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
         G.ROOM.T.h,
@@ -443,9 +443,9 @@ function create_negative_examples()
         (1.1 * G.CARD_H) * 0.7,
         { card_limit = 2, type = "title", highlight_limit = 0, collection = true }
     )
-    local joker_example = create_negative_joker_example()
-    local consumable_example = create_negative_consumable_example()
-    local consumable_example_2 = create_negative_consumable_example_2()
+    local joker_example = ctex_create_negative_joker_example()
+    local consumable_example = ctex_create_negative_consumable_example()
+    local consumable_example_2 = ctex_create_negative_consumable_example_2()
     G.ctex_negative_examples:emplace(joker_example)
     G.ctex_negative_examples:emplace(consumable_example)
     G.ctex_negative_examples:emplace(consumable_example_2)
@@ -459,7 +459,7 @@ function create_negative_examples()
 end
 
 -- Create debuff examples card area in config
-function create_debuff_examples()
+function ctex_create_debuff_examples()
     G.ctex_debuff_examples = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
         G.ROOM.T.h,
@@ -467,9 +467,9 @@ function create_debuff_examples()
         (1.1 * G.CARD_H) * 0.7,
         { card_limit = 2, type = "title", highlight_limit = 0, collection = true }
     )
-    local joker_example = create_debuffed_joker_example()
-    local joker_example_2 = create_debuffed_joker_example_2()
-    local card_example = create_debuffed_card_example()
+    local joker_example = ctex_create_debuffed_joker_example()
+    local joker_example_2 = ctex_create_debuffed_joker_example_2()
+    local card_example = ctex_create_debuffed_card_example()
     G.ctex_debuff_examples:emplace(joker_example)
     G.ctex_debuff_examples:emplace(joker_example_2)
     G.ctex_debuff_examples:emplace(card_example)

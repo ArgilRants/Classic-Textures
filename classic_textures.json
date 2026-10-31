@@ -9,11 +9,11 @@
  "icon_path": "icon.png",
  "icon_width": 57,
  "icon_fps": 12,
- "author": ["ArgilRants. see credits"],
+ "author": ["ArgilRants, see credits"],
  "description": "A set of texture packs with the aim to bring back reworked or otherwise unseen textures from days past.",
  "prefix": "ctex",
  "main_file": "main.lua",
  "priority": 0,
- "version": "1.2.2",
+ "version": "1.2.3",
  "dependencies": ["malverk (>=1.*)", "Steamodded (>=26.*)"]
 }

@@ -70,3 +70,7 @@
 - Fixed Star Stake Sticker Localisation for the like 4th time lol
 - Extra Description Info should be less laggy now
 - Fixed left over Pluto description lol, thanks jandom
+
+## Version 1.2.3
+### Fixes
+- Make all functions have a prefix (should've done this from the start tbh)
